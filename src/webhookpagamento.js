@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express'; // 👈 adicione essa linha
 import { Router } from 'express';
 import Stripe from 'stripe';
