@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
-import express from 'express'; // 👈 adicione essa linha
+
+import express from 'express';
 import { Router } from 'express';
 import Stripe from 'stripe';
 import admin from 'firebase-admin';
@@ -10,7 +11,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 router.post('/', express.raw({ type: 'application/json' }), async (req, res) => {
   const signature = req.headers['stripe-signature'];
-  
+
   let event;
   try {
     event = stripe.webhooks.constructEvent(req.body, signature, process.env.STRIPE_WEBHOOK_SECRET);

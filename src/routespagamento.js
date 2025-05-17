@@ -1,13 +1,10 @@
 import dotenv from 'dotenv';
 dotenv.config();
+
 import express from 'express';
 import Stripe from 'stripe';
-import dotenv from 'dotenv';
-dotenv.config();
 
 const router = express.Router();
-
-// Instancia o Stripe com a chave secreta do .env
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 router.get('/pagamento', async (req, res) => {
